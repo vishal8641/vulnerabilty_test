@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "version": "ces-2024",
+        "pull_url": "registry.kpit.com/virtualization/kv-app-controller:ces-2024",
+        "last_modified": "2024-04-11"
+    },
+    {
+        "id": 1,
+        "version": "ces-2024",
+        "pull_url": "registry.kpit.com/virtualization/kv-kafka-microservice:ces-2024",
+        "last_modified": "2024-04-11"
+    }
+]
