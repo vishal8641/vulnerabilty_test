@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>File Structure</title>
+    <style>
+        ul { list-style-type: none; }
+        li { margin-left: 20px; }
+    </style>
+</head>
+<body>
+    <ul id="file-structure"></ul>
+
+    <script>
+        fetch('/files')
+            .then(response => response.json())
+            .then(data => {
+                const listElement = document.getElementById('file-structure');
+                buildList(data, listElement);
+            });
+
+        function buildList(items, parentElement) {
+            items.forEach(item => {
+                const itemElement = document.createElement('li');
+                itemElement.textContent = item.name;
+                parentElement.appendChild(itemElement);
+
+                if (item.type === 'directory') {
+                    const sublistElement = document.createElement('ul');
+                    itemElement.appendChild(sublistElement); // Append sublist to its parent item
+                    buildList(item.children, sublistElement);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
